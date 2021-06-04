@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <link rel = 'stylesheet' type = 'text/css' href = './style/style.css'>
+        <title>My ATM</title>
+        <meta charset = 'UTF-8'>
+
+    </head>
+    <body>
+        <!-- <label for = 'card_box'>Credit Card Number: </label> -->
+        <div class = 'card'>
+            <div class = 'left-top-logo'>
+               
+                <div id = 'left-top-group'>
+                    <span id = 'GTCrea' >GTCrea</span>
+                    <span id = 'e'>eSaversAccount</span>
+                </div>
+                <div id = 'logo'><img src = 'GTBank_logo.svg' alt = 'logo' width="40" height="40"></div>
+            
+            </div>
+            
+            <div id = 'chip' ><img src = 'emv_chip.png' alt = 'Chip' width="40" height="30"/></div>
+            
+            <input type = 'tel' class = 'inputs' id = 'card_box' placeholder = 'xxxx xxxx xxxx xxxx' oninput= 'card_check(this.value)'>
+           
+            <div class = 'valid-thru'>
+               <label for = 'date' class = 'inputs' id = 'valid_thru'>VALID</br>THRU</label>
+               <input type = 'text'  class = 'inputs' placeholder = 'MM'>
+               <span id = 'slash'>/</span>
+               <input type = 'text'  class = 'inputs' placeholder = 'YY'>
+            
+            </div>
+            <div id = 'display'>DEBIT</div>
+            <input type = 'text' class = 'inputs' id = 'name' placeholder = 'Your Name'>
+        </div>
+
+    </body>
+
+    <script>
+        //const a = document.getElementById('card_box').value;
+        const display = document.getElementById('display');
+        let card_check = (a) =>{
+            if (a[0] == 4 && a.length == 18){                
+                display.innerHTML = "<img src = 'verve.png' alt = 'verve-logo' width = '50' height ='30'/>";
+            }
+            else if (a[0] == 5 || a.length == 16) {
+                display.innerHTML = "<img src = 'master.webp' alt = 'mastercard-logo' width = '50' height ='30'/>";   
+            }
+            else if (a[0] == 4 || a.length == 16){
+                display.innerHTML = "<img src = 'visa.png' alt = 'visa-logo' width = '50' height ='30'/>";
+            }
+            else {
+                display.innerHTML = 'DEBIT';
+            }
+           
+        }
+    </script>
+
+</html>
